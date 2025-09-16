@@ -21,7 +21,7 @@ Auto-switch Go versions with gvm, like nvm for Node.js.
 Place a `.go-version` file in your project root containing the Go version you want to use, for example:
 
 ```
-go1.18
+go1.23.1
 ```
 
 Optionally, add a `.go-pkgset` file to specify a gvm package set:
@@ -29,6 +29,8 @@ Optionally, add a `.go-pkgset` file to specify a gvm package set:
 ```
 my-pkgset
 ```
+
+If a `.go-version` file is not found, the extension will try to detect the Go version from your `go.mod` file automatically.
 
 When you open the workspace, the extension will automatically run `gvm use` with the specified version and pkgset. If the version or pkgset does not exist, you will be prompted to install or create them.
 
