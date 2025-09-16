@@ -2,7 +2,7 @@
   "name": "vscode-gvm-auto-switcher",
   "displayName": "GVM Auto Switcher",
   "description": "Auto-switch Go versions with gvm in VS Code, just like nvm for Node.js.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "hayatibis",
   "repository": {
     "type": "git",
