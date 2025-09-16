@@ -1,0 +1,100 @@
+{
+  "name": "vscode-gvm-auto-switcher",
+  "displayName": "GVM Auto Switcher",
+  "description": "Auto-switch Go versions with gvm in VS Code, just like nvm for Node.js.",
+  "version": "0.0.1",
+  "publisher": "hayatibis",
+  "keywords": [
+    "gvm, go version manager",
+    "go version",
+    "gvm",
+    "go version switcher",
+    "go version switch",
+    "go",
+    "golang",
+    "gvm",
+    "version manager",
+    "nvm",
+    "gopher",
+    "switch"
+  ],
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gvmSwitcher.useWorkspaceVersion",
+        "title": "GVM: Use Workspace Go Version"
+      },
+      {
+        "command": "gvmSwitcher.applyFromGoMod",
+        "title": "GVM: Apply go.mod Version"
+      }
+    ],
+    "configuration": {
+      "title": "GVM Auto Switcher",
+      "properties": {
+        "gvmSwitcher.gvmInitScriptPath": {
+          "type": "string",
+          "default": "~/.gvm/scripts/gvm",
+          "description": "Path to gvm init script."
+        },
+        "gvmSwitcher.autoSwitchInIntegratedTerminal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto-run gvm use in new terminals."
+        },
+        "gvmSwitcher.alsoSetGoConfig": {
+          "type": "boolean",
+          "default": true,
+          "description": "Update go.goroot/gopath in workspace."
+        },
+        "gvmSwitcher.preferGoMod": {
+          "type": "boolean",
+          "default": true,
+          "description": "If .go-version missing, parse go.mod."
+        },
+        "gvmSwitcher.promptOnFailure": {
+          "type": "boolean",
+          "default": true,
+          "description": "When gvm use fails, show a Yes/No prompt to install the missing Go version (on startup and when opening a new terminal)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.104.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "eslint": "^9.34.0",
+    "esbuild": "^0.25.9",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
