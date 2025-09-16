@@ -373,7 +373,9 @@ export function activate(context: vscode.ExtensionContext) {
       const init = getInitPath();
       terminal.sendText(`[[ -s "${init}" ]] && source "${init}"`, true);
       terminal.sendText(`gvm use ${version}`, true);
-      if (pkgset) terminal.sendText(`gvm pkgset use ${pkgset}`, true);
+      if (pkgset) {
+        terminal.sendText(`gvm pkgset use ${pkgset}`, true);
+      }
     })
   );
 

@@ -1,71 +1,63 @@
-# vscode-gvm-auto-switcher README
+# GVM Auto Switcher (VS Code)
 
-This is the README for your extension "vscode-gvm-auto-switcher". After writing up a brief description, we recommend including the following sections.
+Auto-switch Go versions with gvm, like nvm for Node.js.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Automatically run `gvm use` when opening a workspace with a `.go-version` file.
+- Prompt to install missing Go versions via gvm.
+- Support for `.go-pkgset` files with prompt to auto-create missing pkgsets.
+- Status bar indicator showing the current Go version and pkgset.
+- Option to update workspace `go.goroot` and `go.gopath` settings automatically.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Install [gvm (Go Version Manager)](https://github.com/moovweb/gvm) on your system.
+2. Install this extension from the VS Code Marketplace or via VSIX.
+3. Reload VS Code to activate the extension.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
 
-## Requirements
+Place a `.go-version` file in your project root containing the Go version you want to use, for example:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```
+go1.18
+```
 
-## Extension Settings
+Optionally, add a `.go-pkgset` file to specify a gvm package set:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```
+my-pkgset
+```
 
-For example:
+When you open the workspace, the extension will automatically run `gvm use` with the specified version and pkgset. If the version or pkgset does not exist, you will be prompted to install or create them.
 
-This extension contributes the following settings:
+## Configuration
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+The extension contributes the following settings:
 
-## Known Issues
+- `gvmAutoSwitcher.updateGoEnv`:  
+  *boolean* (default: `true`)  
+  Update workspace `go.goroot` and `go.gopath` settings automatically after switching Go versions.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- `gvmAutoSwitcher.promptOnMissingVersion`:  
+  *boolean* (default: `true`)  
+  Prompt to install missing Go versions when detected.
 
-## Release Notes
+- `gvmAutoSwitcher.promptOnMissingPkgset`:  
+  *boolean* (default: `true`)  
+  Prompt to create missing pkgsets when detected.
 
-Users appreciate release notes as you update your extension.
+- `gvmAutoSwitcher.statusBar.enabled`:  
+  *boolean* (default: `true`)  
+  Show Go version and pkgset in the status bar.
 
-### 1.0.0
+## Notes
 
-Initial release of ...
+- This extension currently supports macOS, Linux, and WSL environments only.
+- It is compatible with `zsh` and Powerlevel10k multi-line prompt injection.
+- Ensure your shell environment loads gvm properly for the extension to work.
 
-### 1.0.1
+## License
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT © Hayati

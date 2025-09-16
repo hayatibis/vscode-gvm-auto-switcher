@@ -2,21 +2,23 @@
   "name": "vscode-gvm-auto-switcher",
   "displayName": "GVM Auto Switcher",
   "description": "Auto-switch Go versions with gvm in VS Code, just like nvm for Node.js.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "hayatibis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hayatibis/vscode-gvm-auto-switcher.git"
+  },
   "keywords": [
-    "gvm, go version manager",
-    "go version",
-    "gvm",
-    "go version switcher",
-    "go version switch",
     "go",
     "golang",
     "gvm",
+    "go version manager",
     "version manager",
     "nvm",
     "gopher",
-    "switch"
+    "switch",
+    "go version",
+    "go version switch"
   ],
   "engines": {
     "vscode": "^1.104.0"
@@ -66,6 +68,11 @@
           "type": "boolean",
           "default": true,
           "description": "When gvm use fails, show a Yes/No prompt to install the missing Go version (on startup and when opening a new terminal)."
+        },
+        "gvmSwitcher.promptToCreatePkgset": {
+          "type": "boolean",
+          "default": true,
+          "description": "If a pkgset is specified but missing, ask to create it and run 'gvm pkgset use' automatically."
         }
       }
     }
