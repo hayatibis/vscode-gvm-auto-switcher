@@ -1,12 +1,3 @@
-# Change Log
-
-All notable changes to the "vscode-gvm-auto-switcher" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
 # Changelog
 
 All notable changes to the vscode-gvm-auto-switcher extension will be documented in this file.
@@ -23,3 +14,8 @@ All notable changes to the vscode-gvm-auto-switcher extension will be documented
   - `gvmSwitcher.promptOnFailure`
   - `gvmSwitcher.promptToCreatePkgset`
 - Multi-line terminal injection for better zsh/Powerlevel10k compatibility.
+
+## [0.1.2] - 2025-09-16
+### Changed
+- Added icon to extension manifest for Marketplace listing.
+- Minor internal cleanup and packaging adjustments.
