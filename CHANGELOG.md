@@ -19,3 +19,7 @@ All notable changes to the vscode-gvm-auto-switcher extension will be documented
 ### Changed
 - Added icon to extension manifest for Marketplace listing.
 - Minor internal cleanup and packaging adjustments.
+
+## [0.1.3] - 2025-09-16
+### Changed
+- Readme updated
